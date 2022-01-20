@@ -21,8 +21,13 @@ public static class Program
             return;
         }
 
+        var refs = args[2..];
+
+        Console.WriteLine("Exploring java files...");
         var explorer = new JavaExplorer(projectPath);
-        explorer.ExplorePackages();
+        explorer.ExplorePackages(refs);
+
+        Console.WriteLine("Exporting results to db...");
         explorer.ExportToDb($"Data Source={dbPath};");
     }
 }

@@ -10,4 +10,5 @@ public class JavaTypeDeclaration
     public int Line { get; set; }
     public int Column { get; set; }
     public string FilePath { get; set; }
+    public string[]? Extends { get; set; }
 }

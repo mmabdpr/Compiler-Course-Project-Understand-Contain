@@ -21,7 +21,7 @@ public class JavaExplorer
     private List<JavaEntity> Entities { get; } = new();
     private List<JavaReference> References { get; } = new();
 
-    public void ExplorePackages()
+    public void ExplorePackages(string[] refs)
     {
         JavaPackageVisitor visitor = new();
 
@@ -39,7 +39,7 @@ public class JavaExplorer
         }
 
         Entities.AddRange(visitor.ExtractEntities());
-        References.AddRange(visitor.ExtractReferences());
+        References.AddRange(visitor.ExtractReferences(refs));
 
         Console.WriteLine("exploration done!");
     }
